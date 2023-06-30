@@ -1,3 +1,7 @@
+# vite-vue-mobile-template
+
+这个模板可以帮助你快速使用 `Vue3`, `Typescript` 和 `Vite` 进行移动端项目开发。
+
 **安装pnpm**
 
 ```javascript

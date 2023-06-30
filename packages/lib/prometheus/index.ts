@@ -1,7 +1,8 @@
 import axios from 'axios'
+import type { AxiosRequestConfig } from 'axios'
 import { showToast } from 'vant'
 import dayjs from 'dayjs'
-import { deepClone } from '@packages/utils'
+import { deepClone, getToken } from '@packages/utils'
 
 const config = {
   server: import.meta.env.VITE_PROMETHEUS_SERVER,
@@ -11,19 +12,27 @@ const config = {
 interface PrometheusOptions {
   server?: string
   base?: string
+  proxy?: boolean
+  withToken?: boolean
+  AuthorizationKey?: string
+  errorHandler?: Function
+  timeout?: number
 }
 
-interface PrometheusQueryConfig {
-  method?: 'get' | 'post'
-}
+interface PrometheusQueryConfig extends AxiosRequestConfig {}
 
 interface PrometheusGetMonitorConfig {
+  queryConfig?: PrometheusQueryConfig
   field?: string
   format?: string
   valueFormat?: Function
   title?: string
   name?: string | Array<string>
   yAxisName?: string
+}
+
+interface PrometheusGetServiceConfig {
+  queryConfig?: PrometheusQueryConfig
 }
 
 export const chartOptionModel = {
@@ -79,7 +88,12 @@ export const memoryYAxisLabelFormatter = (value: any) => {
 export const usePrometheus = (options?: PrometheusOptions) => {
   const server: any = options?.server || config.server
   const base: any = options?.base || config.base
-  const baseurl = server + base
+  const proxy = options?.proxy
+  const baseurl = proxy ? base : server + base
+  const withToken = options?.withToken
+  const AuthorizationKey = options?.AuthorizationKey || 'Authorization'
+  const errorHandler = options?.errorHandler
+  const timeout = options?.timeout || 60 * 1000
 
   /**
    * query
@@ -94,7 +108,7 @@ export const usePrometheus = (options?: PrometheusOptions) => {
   ): Promise<any> => {
     const url = baseurl + '/query'
     const method = config.method || 'get'
-    return axios[method](url, { params: { query, ...params } })
+    return request({ url, method, params: { query, ...params }, ...config })
   }
 
   const queryRange = (
@@ -104,7 +118,14 @@ export const usePrometheus = (options?: PrometheusOptions) => {
   ): Promise<any> => {
     const url = baseurl + '/query_range'
     const method = config.method || 'get'
-    return axios[method](url, { params: { query, ...params } })
+    return request({ url, method, params: { query, ...params }, ...config })
+  }
+
+  const request = async (config: PrometheusQueryConfig = {}): Promise<any> => {
+    const headers: any = withToken ? { [AuthorizationKey]: getToken() } : {}
+    const res = await axios.request({ headers, timeout, ...config })
+    errorHandler?.(res)
+    return res
   }
 
   const getMonitor = async (
@@ -114,7 +135,7 @@ export const usePrometheus = (options?: PrometheusOptions) => {
   ) => {
     let _res: Record<string, any>
     try {
-      _res = await queryRange(_query, params)
+      _res = await queryRange(_query, params, config.queryConfig)
       const res = _res.data
       if (res.status !== 'success') return
       if (res.data.resultType !== 'matrix') return
@@ -160,15 +181,14 @@ export const usePrometheus = (options?: PrometheusOptions) => {
   ) => {
     let _res: Record<string, any>
     try {
-      _res = await query(_query, params)
+      _res = await query(_query, params, config.queryConfig)
       const res = _res.data
       if (res.status !== 'success') return
       if (res.data.resultType !== 'vector') return
       const result = res.data.result
       return {
         data: result.map((r: Record<string, any>) => ({
-          name: r.metric.name,
-          instance: r.metric.instance,
+          ...r.metric,
           status: r.value[1]
         })),
         legendData: result.map((r: Record<string, any>) => r.metric.name)
@@ -179,7 +199,32 @@ export const usePrometheus = (options?: PrometheusOptions) => {
     }
   }
 
-  return { query, getMonitor, getService }
+  const getServiceByRange = async (
+    _query: string,
+    params: Record<string, any> = {},
+    config: PrometheusGetServiceConfig = {}
+  ) => {
+    let _res: Record<string, any>
+    try {
+      _res = await queryRange(_query, params, config.queryConfig)
+      const res = _res.data
+      if (res.status !== 'success') return
+      if (res.data.resultType !== 'matrix') return
+      const result = res.data.result
+      return {
+        data: result.map((r: Record<string, any>) => ({
+          ...r.metric,
+          status: r.values[0]?.[1]
+        })),
+        legendData: result.map((r: Record<string, any>) => r.metric.name)
+      }
+    } catch (e) {
+      showToast('请求失败')
+      return
+    }
+  }
+
+  return { request, query, queryRange, getMonitor, getService, getServiceByRange }
 }
 
 // Usage
