@@ -47,8 +47,8 @@
 
 <script lang="ts">
 import { defineComponent, onBeforeMount, reactive, computed } from 'vue'
-import type { Pagination } from '@gm/types'
-import { useData } from '@gm/hooks'
+import type { Pagination } from '@packages/types'
+import { useData } from '@packages/hooks'
 import { getData } from '@/api'
 import { columns } from './columns'
 
