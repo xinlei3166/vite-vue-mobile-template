@@ -12,7 +12,7 @@
     "vite",
     "template"
   ],
-  "author": "zhengxinlei",
+  "author": "君惜",
   "license": "MIT",
   "scripts": {
     "preinstall": "npx only-allow pnpm",

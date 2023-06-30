@@ -4,7 +4,7 @@
   "description": "@packages/components",
   "main": "index.ts",
   "keywords": [],
-  "author": "zhengxinlei",
+  "author": "君惜",
   "license": "MIT",
   "dependencies": {
     "@packages/utils": "workspace:*"
