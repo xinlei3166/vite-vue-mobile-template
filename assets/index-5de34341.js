@@ -1,0 +1,1 @@
+import{d as t,c as s,a as _,t as a,u as c,o,_ as n}from"./index-0d76e391.js";const d={class:"card"},i={class:"title"},r=t({__name:"index",setup(p){const e={}.VITE_APP_TITLE;return(l,f)=>(o(),s("div",d,[_("div",i,a(c(e)),1)]))}});const x=n(r,[["__scopeId","data-v-79922cbf"]]);export{x as default};

@@ -1,1 +1,0 @@
-import{d as s,aK as n,_ as a,c as o,a as t,t as r,a5 as c,o as u}from"./index-ee461707.js";const i=s({setup(){return{number:n("number")}}}),d=t("div",{class:"title"},"子组件",-1),l={class:"title"};function _(e,p,m,f,F,b){return u(),o(c,null,[d,t("div",l,"当前结果："+r(e.number),1)],64)}const B=a(i,[["render",_]]);export{B as default};
