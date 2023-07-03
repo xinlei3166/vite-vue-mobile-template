@@ -20,7 +20,14 @@ module.exports = {
       // exclude: [/node_modules/], // 设置忽略文件，用正则做目录名匹配
       landscape: false, // 是否处理横屏情况,
       overrideOptions: ({ file }) => {
-        const viewportWidth = file.includes(path.join('node_modules', 'vant')) ? 375 : 750
+        let viewportWidth = 750
+        if (file.includes(path.join('node_modules', 'vant'))) {
+          viewportWidth = 375
+        }
+        // Compatible the unocss
+        if (file.includes('__uno.css')) {
+          viewportWidth = 375
+        }
         return { viewportWidth }
       }
     }
