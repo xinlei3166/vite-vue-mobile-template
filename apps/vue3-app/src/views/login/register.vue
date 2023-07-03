@@ -138,7 +138,7 @@ const cb = () => {
 }
 const onSendCode = async () => {
   countdown.value = sendInterval
-  initTimer(1, cb)
+  initTimer(cb, 1)
 }
 
 const onLogin = () => {
