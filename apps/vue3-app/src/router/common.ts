@@ -32,26 +32,6 @@ const routes: RouteRecordRaw[] = [
     },
     component: () => import('@/components/exception/500.vue')
   }
-  // {
-  //   path: '/403',
-  //   meta: {
-  //     title: '403',
-  //     auth: false,
-  //     hidden: true
-  //   },
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: '',
-  //       name: '403',
-  //       meta: {
-  //         title: '403',
-  //         auth: false
-  //       },
-  //       component: () => import('@/components/exception/error-403.vue')
-  //     }
-  //   ]
-  // }
 ]
 
 export const errorRoute: RouteRecordRaw = {
