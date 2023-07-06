@@ -1,0 +1,1 @@
+import{d as t,c as s,a as _,t as a,u as o,o as c,_ as n}from"./index-842a2b51.js";const d={class:"card"},i={class:"title"},r=t({__name:"index",setup(l){const e="Vue Mobile Template";return(p,u)=>(c(),s("div",d,[_("div",i,a(o(e)),1)]))}});const m=n(r,[["__scopeId","data-v-79922cbf"]]);export{m as default};
