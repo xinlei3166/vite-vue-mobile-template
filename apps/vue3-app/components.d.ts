@@ -11,7 +11,6 @@ declare module '@vue/runtime-core' {
     404: typeof import('./src/components/exception/404.vue')['default']
     500: typeof import('./src/components/exception/500.vue')['default']
     Buttons: typeof import('./src/components/exception/buttons.vue')['default']
-    Error403: typeof import('./src/components/exception/error-403.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Navbar: typeof import('./src/components/layout/Navbar.vue')['default']
     Router: typeof import('./src/components/layout/Router.vue')['default']
