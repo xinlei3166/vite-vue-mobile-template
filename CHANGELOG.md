@@ -1,3 +1,12 @@
+## [1.0.5](https://github.com/xinlei3166/vite-vue-mobile-template/compare/v1.0.4...v1.0.5) (2023-07-06)
+
+
+### Features
+
+* update title ([bb09600](https://github.com/xinlei3166/vite-vue-mobile-template/commit/bb096000b5ecd2f270642e26d65968239a4b91d8))
+
+
+
 ## [1.0.4](https://github.com/xinlei3166/vite-vue-mobile-template/compare/v1.0.3...v1.0.4) (2023-07-06)
 
 
