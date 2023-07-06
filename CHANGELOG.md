@@ -1,3 +1,14 @@
+## [1.0.4](https://github.com/xinlei3166/vite-vue-mobile-template/compare/v1.0.3...v1.0.4) (2023-07-06)
+
+
+### Features
+
+* styles/index.less ([ee3bf1a](https://github.com/xinlei3166/vite-vue-mobile-template/commit/ee3bf1a76e13aec5e2f38f6bca58c0fcc8537806))
+* update title ([6dabea5](https://github.com/xinlei3166/vite-vue-mobile-template/commit/6dabea5e75b55c8a33a8069d8917c4eb03392d8a))
+* update title ([0e1b5fa](https://github.com/xinlei3166/vite-vue-mobile-template/commit/0e1b5fa5c747a504e3f9271e63436d7eca65ee80))
+
+
+
 ## [1.0.3](https://github.com/xinlei3166/vite-vue-mobile-template/compare/v1.0.2...v1.0.3) (2023-07-03)
 
 
