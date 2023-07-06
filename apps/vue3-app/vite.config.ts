@@ -21,6 +21,7 @@ export default ({ mode, command }) => {
       __APP_TITLE__: JSON.stringify(env.VITE_APP_TITLE),
       __DYNAMIC_MENU__: env.VITE_DYNAMIC_MENU
     },
+    envDir,
     build: {
       outDir: env.VITE_OUTDIR || 'dist'
     },
@@ -46,7 +47,7 @@ export default ({ mode, command }) => {
       createHtmlPlugin({
         inject: {
           data: {
-            title: env.VITE_APP_TITLE
+            // title: env.VITE_APP_TITLE
             // injectScript: `<script src="./inject.js"></script>`
           }
         }

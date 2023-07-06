@@ -63,6 +63,7 @@
     "@types/qs": "^6.9.7",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
+    "@unocss/postcss": "^0.53.4",
     "@unocss/preset-rem-to-px": "^0.53.4",
     "@vitejs/plugin-vue": "^4.2.2",
     "@vitejs/plugin-vue-jsx": "^3.0.1",

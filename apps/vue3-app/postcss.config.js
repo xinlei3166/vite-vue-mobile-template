@@ -2,6 +2,7 @@ const path = require('path')
 
 module.exports = {
   plugins: {
+    '@unocss/postcss': {},
     autoprefixer: {
       overrideBrowserslist: ['Android 4.1', 'iOS 7.1', 'Chrome > 31', 'ff > 31', 'ie >= 8']
     },
@@ -22,10 +23,6 @@ module.exports = {
       overrideOptions: ({ file }) => {
         let viewportWidth = 750
         if (file.includes(path.join('node_modules', 'vant'))) {
-          viewportWidth = 375
-        }
-        // Compatible the unocss
-        if (file.includes('__uno.css')) {
           viewportWidth = 375
         }
         return { viewportWidth }
