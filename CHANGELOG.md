@@ -1,3 +1,12 @@
+## [1.0.6](https://github.com/xinlei3166/vite-vue-mobile-template/compare/v1.0.5...v1.0.6) (2023-07-07)
+
+
+### Features
+
+* unocss ([5c801fe](https://github.com/xinlei3166/vite-vue-mobile-template/commit/5c801fed5319e488b668d8fc510bbe6f47374a09))
+
+
+
 ## [1.0.5](https://github.com/xinlei3166/vite-vue-mobile-template/compare/v1.0.4...v1.0.5) (2023-07-06)
 
 
