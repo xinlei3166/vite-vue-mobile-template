@@ -1,3 +1,12 @@
+## [1.0.7](https://github.com/xinlei3166/vite-vue-mobile-template/compare/v1.0.6...v1.0.7) (2023-07-11)
+
+
+### Features
+
+* requests api ([fc4e7da](https://github.com/xinlei3166/vite-vue-mobile-template/commit/fc4e7dad3f20c07b61054b938423c0e42207372e))
+
+
+
 ## [1.0.6](https://github.com/xinlei3166/vite-vue-mobile-template/compare/v1.0.5...v1.0.6) (2023-07-07)
 
 
