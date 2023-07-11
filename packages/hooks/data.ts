@@ -33,7 +33,7 @@ export function useData(
     pagination = {},
     dataKey = 'list',
     cb,
-    method = 'post',
+    method = 'get',
     codeKey = 'code',
     successCode = 0
   }: DataOptions

@@ -1,4 +1,4 @@
-import { showToast, Toast } from 'vant'
+import { showToast, closeToast } from 'vant'
 import router from '@/router'
 import { useRequests } from '@packages/lib'
 import { removeToken } from '@packages/utils'
@@ -11,7 +11,7 @@ const errorHandler = (msg: string) => {
   removeToken()
   userStore.cleanup()
   menuStore.cleanup()
-  Toast.clear()
+  closeToast()
   showToast(msg)
   setTimeout(() => {
     router.push('/login')

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { showToast, showLoadingToast, Toast } from 'vant'
+import { showToast, showLoadingToast, closeToast } from 'vant'
 import type { Config, RequestsConfig, Method } from '@packages/types'
 import { httpMsg } from '@packages/types/enums'
 import { getToken, writeFile, writeBase64File } from '@packages/utils'
@@ -76,7 +76,7 @@ const createRequests = (requestsConfig: RequestsConfig = {}) => {
         return response.data
       }
       if (code && code !== successCode) {
-        Toast.clear()
+        closeToast()
         showToast(msg)
       }
       return response?.data
@@ -86,7 +86,7 @@ const createRequests = (requestsConfig: RequestsConfig = {}) => {
       //   error.message = httpMsg[error.response.status] || httpMsg.errorMsg
       // }
       if (error.message) {
-        Toast.clear()
+        closeToast()
         showToast(error.message)
       }
       return Promise.reject(error)
