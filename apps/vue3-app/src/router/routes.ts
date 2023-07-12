@@ -139,13 +139,13 @@ const routes: RouteRecordRaw[] = [
         component: () => import('features/components/table/index.vue')
       },
       {
-        path: '/components/draggable',
-        name: 'draggable',
+        path: '/components/sortable',
+        name: 'sortable',
         meta: {
-          title: 'draggable',
+          title: 'sortable',
           icon: 'icon-setting'
         },
-        component: () => import('features/components/draggable/index.vue')
+        component: () => import('features/components/sortable/index.vue')
       }
     ]
   }

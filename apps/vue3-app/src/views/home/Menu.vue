@@ -38,12 +38,12 @@
     </li>
     <li
       class="card-menu-item flex flex-col-reverse items-center"
-      @click="onClickMenu('/components/draggable')"
+      @click="onClickMenu('/components/sortable')"
     >
       <span class="icon-wrap" order="5">
         <van-icon class="icon" name="apps-o" />
       </span>
-      <span class="text">Draggable</span>
+      <span class="text">Sortable</span>
     </li>
   </ul>
 </template>

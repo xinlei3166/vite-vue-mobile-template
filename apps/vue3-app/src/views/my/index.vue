@@ -19,7 +19,7 @@
     <van-cell icon="share-o" title="Provide" is-link to="/components/provide-inject" />
     <van-cell icon="guide-o" title="Bus" is-link to="/components/bus" />
     <van-cell icon="notes-o" title="Table" is-link to="/components/table" />
-    <van-cell icon="apps-o" title="Draggable" is-link to="/components/draggable" />
+    <van-cell icon="apps-o" title="Sortable" is-link to="/components/sortable" />
   </van-cell-group>
   <van-cell-group class="nav-menu" inset>
     <van-cell icon="setting-o" title="Security Settings" is-link />
