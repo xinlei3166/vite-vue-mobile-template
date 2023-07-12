@@ -1,3 +1,12 @@
+## [1.0.8](https://github.com/xinlei3166/vite-vue-mobile-template/compare/v1.0.7...v1.0.8) (2023-07-12)
+
+
+### Features
+
+* add sortable example ([ae4ffdb](https://github.com/xinlei3166/vite-vue-mobile-template/commit/ae4ffdbe3e150836960183e44af8396f9682b808))
+
+
+
 ## [1.0.7](https://github.com/xinlei3166/vite-vue-mobile-template/compare/v1.0.6...v1.0.7) (2023-07-11)
 
 
