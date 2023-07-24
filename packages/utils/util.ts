@@ -217,3 +217,7 @@ export function isJSON(str: any) {
 export const convertStringToBoolean = (value: string) => {
   return value === 'true' ? true : value === 'false' ? false : value
 }
+
+export const kebabCase = (str: string) => {
+  return str.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`)
+}
