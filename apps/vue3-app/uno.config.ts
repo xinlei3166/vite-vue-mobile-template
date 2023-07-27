@@ -12,7 +12,7 @@ export default defineConfig({
     }),
     presetRemToPx()
   ],
-  // opacity: active, disabled
+  // @ts-ignore opacity: active, disabled
   rules: [[/^opacity-(active|disabled)$/, ([, d]) => ({ opacity: `var(--van-${d}-opacity)` })]],
   theme: {
     colors: {
