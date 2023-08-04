@@ -229,4 +229,4 @@ export const usePrometheus = (options?: PrometheusOptions) => {
 
 // Usage
 // const prom = usePrometheus()
-// prom.query('dm_global_status_tps', { db: '192.168.200.161:5236' }).then(res => console.log(res))
+// prom.query('dm_global_status_tps', { db: 'x.x.x.x' }).then(res => console.log(res))
