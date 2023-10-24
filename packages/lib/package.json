@@ -9,7 +9,7 @@
   "dependencies": {
     "@packages/types": "workspace:*",
     "@packages/utils": "workspace:*",
-    "axios": "^0.27.2",
-    "dayjs": "^1.11.7"
+    "axios": "^1.5.1",
+    "dayjs": "^1.11.10"
   }
 }

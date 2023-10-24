@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { showToast, showLoadingToast, closeToast } from 'vant'
-import type { Config, RequestsConfig, Method } from '@packages/types'
+import type { Config, InternalConfig, RequestsConfig, Method } from '@packages/types'
 import { httpMsg } from '@packages/types/enums'
 import { getToken, writeFile, writeBase64File } from '@packages/utils'
 
@@ -46,7 +46,7 @@ const createRequests = (requestsConfig: RequestsConfig = {}) => {
 
   // request 拦截器
   service.interceptors.request.use(
-    async (config: Config) => {
+    async (config: InternalConfig) => {
       // config.data = qs.stringify(config.data)
       config.headers = config.headers || {}
       const token = getToken()
