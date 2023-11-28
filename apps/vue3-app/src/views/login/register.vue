@@ -20,7 +20,7 @@
           placeholder="请输入手机号"
           :rules="[
             { required: true, message: '请输入手机号' },
-            { validator: validatePhone, message: '手机号合适不正确' }
+            { validator: validatePhone, message: '手机号格式不正确' }
           ]"
         />
       </van-cell-group>
