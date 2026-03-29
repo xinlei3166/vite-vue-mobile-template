@@ -67,12 +67,12 @@ export default ({ mode, command }) => {
     },
     server: {
       proxy: {
-        // [env.VITE_API_URL]: {
-        //   target: env.VITE_PROXY_TARGET,
-        //   changeOrigin: true,
-        //   secure: false
-        //   // rewrite: path => path.replace(new RegExp(`^${env.VITE_API_URL}`), '')
-        // }
+        [env.VITE_API_URL]: {
+          target: env.VITE_PROXY_TARGET,
+          changeOrigin: true,
+          secure: false,
+          rewrite: path => path.replace(new RegExp(`^${env.VITE_API_URL}`), '')
+        }
       }
     }
   })
