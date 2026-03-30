@@ -2,7 +2,7 @@
 import Excel from 'exceljs'
 
 // 具体 api 参考 exceljs 官网文档
-export type ExcelColumn = { header: string; key: string; style: Object; [key: string]: any }
+export type ExcelColumn = { header: string; key: string; style: object; [key: string]: any }
 
 export interface ExcelOptions {
   filename: string
@@ -100,7 +100,7 @@ export const writeFile = async (
 export const writeBase64File = async (
   filename: string,
   base64Str: string,
-  options?: Record<string, any> = {}
+  options: Record<string, any> = {}
 ) => {
   const bStr = atob(base64Str)
   let n = bStr.length
