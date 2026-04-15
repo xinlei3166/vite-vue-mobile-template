@@ -72,16 +72,11 @@ export function useData(
     await init(_params)
   }
 
-  async function onTableChange(
-    pagination: Pagination,
-    filters: any,
-    sorter: any,
-    { currentDataSource }: any
-  ) {
-    pag.current = pagination.current
-    pag.pageSize = pagination.pageSize
+  async function onTableChange(data: any, context: any) {
+    pag.current = data.pagination.current
+    pag.pageSize = data.pagination.pageSize
     await init()
-    _onTableChange?.(pagination, filters, sorter, { currentDataSource })
+    _onTableChange?.(data, context)
   }
 
   return {

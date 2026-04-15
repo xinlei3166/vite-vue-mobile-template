@@ -3,18 +3,19 @@ import type { Ref } from 'vue'
 export * from './requests'
 
 export interface Pagination {
-  size: string
   current: number
   defaultCurrent: number
   pageSize: number
   total: number
-
-  showTotal(total: number | string): string
-
-  showLessItems: boolean
-  showQuickJumper: boolean
-  showSizeChanger: boolean
+  totalContent: any
+  size: string
+  theme: string
   pageSizeOptions: string[]
+  showFirstAndLastPageBtn: boolean
+  showJumper: boolean
+  showPageNumber: boolean
+  showPageSize: boolean
+  showPreviousAndNextBtn: boolean
   [key: string]: any
 }
 
