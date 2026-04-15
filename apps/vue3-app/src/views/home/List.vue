@@ -2,15 +2,15 @@
   <ul class="list flex flex-col">
     <li v-for="(item, index) in data" :key="index" class="list-item flex">
       <div class="list-item-left">
-        <img class="list-item-img" src="https://tdesign.gtimg.com/demo/demo-image-1.png" />
+        <img class="list-item-img" src="https://fastly.jsdelivr.net/npm/@vant/assets/ipad.jpeg" />
       </div>
       <div class="list-item-right flex flex-col justify-between">
         <div class="list-item-title">这是一个{{ tab }}的标题</div>
         <div class="list-item-desc">这是一段描述</div>
         <div>
-          <t-tag class="list-item-tag" plain variant="light">标签</t-tag>
-          <t-tag class="list-item-tag" plain variant="light">标签</t-tag>
-          <t-tag class="list-item-tag" plain variant="light">标签</t-tag>
+          <t-tag class="list-item-tag" shape="round" variant="light-outline">标签</t-tag>
+          <t-tag class="list-item-tag" shape="round" variant="light-outline">标签</t-tag>
+          <t-tag class="list-item-tag" shape="round" variant="light-outline">标签</t-tag>
         </div>
         <div>
           <span class="list-item-price">0.3万/月</span>

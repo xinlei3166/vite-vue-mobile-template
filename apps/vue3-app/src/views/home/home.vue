@@ -1,22 +1,22 @@
 <template>
-  <t-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-    <t-swipe-item>明心见性</t-swipe-item>
-    <t-swipe-item>学习思考</t-swipe-item>
-    <t-swipe-item>坚持不懈</t-swipe-item>
-    <t-swipe-item>收放自如</t-swipe-item>
-  </t-swipe>
+  <t-swiper class="my-swipe" :interval="3000" :navigation="{ type: 'dots' }">
+    <t-swiper-item class="swiper-item">明心见性</t-swiper-item>
+    <t-swiper-item class="swiper-item">学习思考</t-swiper-item>
+    <t-swiper-item class="swiper-item">坚持不懈</t-swiper-item>
+    <t-swiper-item class="swiper-item">收放自如</t-swiper-item>
+  </t-swiper>
   <Menu />
-  <t-tabs v-model:value="active" class="tabs">
-    <t-tab-panel label="热门推荐">
+  <t-tabs v-model="active" class="tabs">
+    <t-tab-panel label="热门推荐" :value="0">
       <List tab="热门推荐" :data="Array.from({ length: 10 })" />
     </t-tab-panel>
-    <t-tab-panel label="时尚流行">
+    <t-tab-panel label="时尚流行" :value="1">
       <List tab="时尚流行" :data="Array.from({ length: 10 })" />
     </t-tab-panel>
-    <t-tab-panel label="经典怀旧">
+    <t-tab-panel label="经典怀旧" :value="2">
       <List tab="经典怀旧" :data="Array.from({ length: 10 })" />
     </t-tab-panel>
-    <t-tab-panel label="其他类型">
+    <t-tab-panel label="其他类型" :value="3">
       <List tab="其他类型" :data="Array.from({ length: 10 })" />
     </t-tab-panel>
   </t-tabs>
@@ -32,23 +32,22 @@ const active = ref(0)
 
 <style lang="less" scoped>
 .my-swipe {
-  .t-swipe-item {
+  border-radius: unset !important;
+  .swiper-item {
     color: #fff;
     font-size: 32px;
+    height: 300px;
     line-height: 300px;
     text-align: center;
     background-color: theme('colors.brand');
   }
-  :deep(.t-swipe__indicators) {
-    //bottom: 60px;
-  }
 }
 
 .tabs {
+  --td-tab-track-width: 80px;
+
   margin-top: 24px;
-  padding-bottom: 100px;
-  :deep(.t-tabs__line) {
-    bottom: 31px;
-  }
+  padding-bottom: 112px;
+  background-color: unset !important;
 }
 </style>

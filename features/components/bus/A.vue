@@ -1,7 +1,7 @@
 <template>
   <div class="title">A组件</div>
   <div class="title">当前结果：{{ number }}</div>
-  <t-button type="primary" size="small" block @click="onAdd">增加</t-button>
+  <t-button theme="primary" size="small" block @click="onAdd">增加</t-button>
 </template>
 
 <script lang="ts">

@@ -6,7 +6,7 @@
       class="layout-navbar"
       :title="title"
       :left-arrow="leftArrow"
-      @click-left="onClickLeft"
+      @left-click="onClickLeft"
     />
     <div class="layout-content">
       <keep-alive v-if="keepAlive">
@@ -39,5 +39,11 @@ provide('data', data)
 <style lang="less" scoped>
 #layout {
   --van-nav-bar-icon-color: theme('colors.textSecondary');
+}
+.layout-navbar {
+  border-bottom: 1px solid theme('colors.borderLevel1');
+}
+.layout-content {
+  padding-top: 96px;
 }
 </style>

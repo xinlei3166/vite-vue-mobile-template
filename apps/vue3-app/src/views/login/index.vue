@@ -1,19 +1,34 @@
 <template>
   <div class="login">
     <h2 class="login-title">登录账号</h2>
-    <t-form class="login-form" @submit="onSubmit">
+    <t-form
+      class="login-form"
+      :data="form"
+      reset-type="initial"
+      :requiredMark="false"
+      labelAlign="left"
+      @submit="onSubmit"
+    >
       <div class="login-field">
-        <t-form-item name="account" :rules="[{ required: true, message: '请输入账号' }]">
-          <t-input v-model="form.account" label="账号" placeholder="请输入账号" />
+        <t-form-item
+          label="账号"
+          name="account"
+          :rules="[{ required: true, message: '请输入账号' }]"
+        >
+          <t-input borderless v-model="form.account" placeholder="请输入账号" />
         </t-form-item>
       </div>
       <div class="login-field">
-        <t-form-item name="password" :rules="[{ required: true, message: '请输入密码' }]">
-          <t-input v-model="form.password" type="password" label="密码" placeholder="请输入密码" />
+        <t-form-item
+          label="密码"
+          name="password"
+          :rules="[{ required: true, message: '请输入密码' }]"
+        >
+          <t-input borderless v-model="form.password" type="password" placeholder="请输入密码" />
         </t-form-item>
       </div>
       <div class="btn-wrap">
-        <t-button block type="primary" native-type="submit">登录</t-button>
+        <t-button block theme="primary" type="submit">登录</t-button>
       </div>
     </t-form>
     <div class="tip-btn-wrap">
@@ -84,12 +99,25 @@ const onRegister = () => {
 
 .login-form {
   margin-top: 16px !important;
+  background-color: unset !important;
 }
 
 .login-field {
+  background-color: #fff;
+  margin-left: 32px;
+  margin-right: 32px;
   &:not(:nth-last-of-type(1)) {
     margin-bottom: 32px !important;
   }
+  :deep(.t-form__item) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.code-input-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .btn-wrap {
@@ -100,6 +128,6 @@ const onRegister = () => {
   margin: 40px 32px 0 32px;
   padding-right: 20px;
   text-align: right;
-  font-size: 28px;
+  font-size: 30px;
 }
 </style>

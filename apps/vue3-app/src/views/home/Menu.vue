@@ -5,7 +5,7 @@
       @click="onClickMenu('/components/store')"
     >
       <span class="icon-wrap" order="1">
-        <t-icon class="icon" name="edit" />
+        <t-icon class="icon" name="edit-2" />
       </span>
       <span class="text">Store</span>
     </li>
@@ -14,7 +14,7 @@
       @click="onClickMenu('/components/provide-inject')"
     >
       <span class="icon-wrap" order="3">
-        <t-icon class="icon" name="share" />
+        <t-icon class="icon" name="share-1" />
       </span>
       <span class="text">Provide</span>
     </li>
@@ -23,7 +23,7 @@
       @click="onClickMenu('/components/bus')"
     >
       <span class="icon-wrap" order="2">
-        <t-icon class="icon" name="guide" />
+        <t-icon class="icon" name="control-platform" />
       </span>
       <span class="text">Bus</span>
     </li>
@@ -32,7 +32,7 @@
       @click="onClickMenu('/components/table')"
     >
       <span class="icon-wrap" order="4">
-        <t-icon class="icon" name="list" />
+        <t-icon class="icon" name="table-2" />
       </span>
       <span class="text">Table</span>
     </li>
@@ -41,7 +41,7 @@
       @click="onClickMenu('/components/sortable')"
     >
       <span class="icon-wrap" order="5">
-        <t-icon class="icon" name="apps" />
+        <t-icon class="icon" name="order" />
       </span>
       <span class="text">Sortable</span>
     </li>
@@ -93,7 +93,7 @@ const onClickMenu = (path: string) => {
     border-radius: 30%;
   }
   .icon {
-    font-size: 48px;
+    font-size: 76px;
     color: #fff;
     padding: 16px;
   }

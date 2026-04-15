@@ -1,9 +1,9 @@
 <template>
   <div class="components-card card">
     <div class="title">Store</div>
-    <t-input v-model="name" clearable placeholder="请输入用户名">
+    <t-input borderless v-model="name" clearable placeholder="请输入用户名">
       <template #suffix>
-        <t-button size="small" type="primary" @click="onSubmit">提交</t-button>
+        <t-button size="small" theme="primary" @click="onSubmit">提交</t-button>
       </template>
     </t-input>
     <div class="title">当前用户：{{ userinfo.userName }}</div>

@@ -54,7 +54,7 @@ export default ({ mode, command }) => {
         imports: ['vue', 'vue-router'],
         resolvers: [
           TDesignResolver({
-            library: 'vue-next'
+            library: 'mobile-vue'
           })
         ],
         dts: false
@@ -62,7 +62,7 @@ export default ({ mode, command }) => {
       Components({
         resolvers: [
           TDesignResolver({
-            library: 'vue-next'
+            library: 'mobile-vue'
           })
         ]
       })

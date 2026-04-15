@@ -29,11 +29,13 @@ const search = reactive<Record<string, any>>({
 
 <style lang="less" scoped>
 .search {
+  background-color: #fff;
+  padding: 24px;
   margin-bottom: 24px;
 }
 
 .list {
-  padding-bottom: 100px;
+  padding-bottom: 112px;
 }
 
 .list-item {
@@ -53,7 +55,7 @@ const search = reactive<Record<string, any>>({
     background: #60a5fa;
   }
   .icon {
-    font-size: 64px;
+    font-size: 90px;
     color: #fff;
     padding: 16px;
   }

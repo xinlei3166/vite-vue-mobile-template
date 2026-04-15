@@ -2,7 +2,10 @@
   <ul class="list flex flex-col">
     <li v-for="(item, index) in data" :key="index" class="list-item flex">
       <div class="list-item-left flex-shrink-0">
-        <img class="list-item-img" src="https://tdesign.gtimg.com/demo/demo-image-1.png" />
+        <img
+          class="list-item-img"
+          src="https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg"
+        />
       </div>
       <div class="list-item-right flex flex-col justify-between">
         <div class="list-item-title">
@@ -23,7 +26,7 @@ const data = Array.from({ length: 20 })
 
 <style lang="less" scoped>
 .list {
-  padding-bottom: 100px;
+  padding-bottom: 112px;
 }
 
 .list-item {
@@ -54,6 +57,9 @@ const data = Array.from({ length: 20 })
     margin-bottom: 20px;
   }
   .list-item-category-time {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-size: 24px;
     color: theme('colors.textSecondary');
   }
