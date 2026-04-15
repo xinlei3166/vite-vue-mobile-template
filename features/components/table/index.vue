@@ -66,15 +66,15 @@ function onPreview() {
   width: 100%;
   td,
   th {
-    //border: 2px solid @text-color-3;
+    //border: 2px solid theme('colors.textPlaceholder');
     text-align: center;
-    color: @text-color;
+    color: theme('colors.textPrimary');
     padding: 16px;
     word-break: break-word;
     font-size: 24px;
   }
   td {
-    color: @text-color-2;
+    color: theme('colors.textSecondary');
   }
 }
 </style>

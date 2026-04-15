@@ -61,7 +61,7 @@ const onLogout = async () => {
   padding: 0 32px;
   width: 100%;
   height: 240px;
-  background: @primary-color;
+  background: theme('colors.brand');
 }
 
 .title-setting {

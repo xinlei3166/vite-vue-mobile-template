@@ -57,17 +57,17 @@ const props = defineProps({
   }
   .list-item-desc {
     font-size: 24px;
-    color: @text-color-2;
+    color: theme('colors.textSecondary');
   }
   .list-item-tag + .list-item-tag {
     margin-left: 12px;
   }
   .list-item-price {
     margin-right: 16px;
-    color: @danger-color;
+    color: theme('colors.error');
   }
   .list-item-space {
-    color: @text-color-2;
+    color: theme('colors.textSecondary');
   }
   .list-item-price,
   .list-item-space {

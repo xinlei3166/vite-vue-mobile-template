@@ -55,7 +55,7 @@ const data = Array.from({ length: 20 })
   }
   .list-item-category-time {
     font-size: 24px;
-    color: @text-color-2;
+    color: theme('colors.textSecondary');
   }
   .list-item-category {
     margin-right: 20px;

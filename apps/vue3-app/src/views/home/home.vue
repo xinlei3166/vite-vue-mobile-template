@@ -37,7 +37,7 @@ const active = ref(0)
     font-size: 32px;
     line-height: 300px;
     text-align: center;
-    background-color: @primary-color;
+    background-color: theme('colors.brand');
   }
   :deep(.t-swipe__indicators) {
     //bottom: 60px;

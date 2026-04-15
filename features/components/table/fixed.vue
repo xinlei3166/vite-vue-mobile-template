@@ -27,8 +27,8 @@
 
 <script setup lang="ts">
 import { defineComponent, computed, onBeforeMount } from 'vue'
-import type { Pagination } from '@packages/types'
 import { useData } from '@packages/hooks'
+import type { Pagination } from '@packages/types'
 import { getList } from '@/api'
 
 const params = computed(() => ({}))
@@ -57,7 +57,7 @@ function onPreview() {
 
 <style lang="less" scoped>
 .btn {
-  color: @primary-color;
+  color: theme('colors.brand');
   margin-right: 10px;
   cursor: pointer;
 }

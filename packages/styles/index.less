@@ -3,7 +3,7 @@
 // required
 .label-required::before {
   content: '*';
-  color: @danger-color;
+  color: theme('colors.error');
   margin-right: 4px;
 }
 
@@ -51,30 +51,30 @@
     background-color: transparent;
     opacity: 1;
     cursor: default;
-    color: @text-color;
+    color: theme('colors.textPrimary');
   }
 }
 
 // nprogress style
 #nprogress .bar {
-  background: @primary-color;
+  background: theme('colors.brand');
 }
 
 // text-btn
 .text-btn-success {
   cursor: pointer;
-  color: @success-color;
+  color: theme('colors.success');
 }
 
 .text-btn-error {
   cursor: pointer;
-  color: @danger-color;
+  color: theme('colors.error');
 }
 
 .text-btn,
 .phone-icon,
 .im-icon {
-  color: @primary-color;
+  color: theme('colors.brand');
   cursor: pointer;
 }
 
@@ -88,11 +88,11 @@
 }
 
 .text-color {
-  color: @text-color;
+  color: theme('colors.textPrimary');
 }
 
 .text-light {
-  color: @text-color-2;
+  color: theme('colors.textSecondary');
 }
 
 .bg-white {

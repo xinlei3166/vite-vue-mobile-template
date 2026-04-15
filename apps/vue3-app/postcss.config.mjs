@@ -1,12 +1,16 @@
-const path = require('path')
+import UnoCSS from '@unocss/postcss'
+import autoprefixer from 'autoprefixer'
+import path from 'path'
+import pxtoviewport from 'postcss-px-to-viewport'
+// import pxtorem from 'postcss-pxtorem'
 
-module.exports = {
-  plugins: {
-    '@unocss/postcss': {},
-    autoprefixer: {
+export default {
+  plugins: [
+    UnoCSS(),
+    autoprefixer({
       overrideBrowserslist: ['Android 4.1', 'iOS 7.1', 'Chrome > 31', 'ff > 31', 'ie >= 8']
-    },
-    'postcss-px-to-viewport': {
+    }),
+    pxtoviewport({
       unitToConvert: 'px', // 要转化的单位
       viewportWidth: 750, // UI设计稿的宽度
       viewportHeight: 1334, //视口的高度，对应的是设计稿的高度（也可以不配置）
@@ -27,8 +31,8 @@ module.exports = {
         }
         return { viewportWidth }
       }
-    }
-    // 'postcss-pxtorem': {
+    })
+    // pxtorem({
     //   rootValue({ file }) {
     //     return file.indexOf('tdesign-mobile-vue') !== -1 ? 37.5 : 75
     //   },
@@ -39,6 +43,6 @@ module.exports = {
     //   mediaQuery: false,
     //   minPixelValue: 0
     //   // exclude: /node_modules/i
-    // }
-  }
+    // })
+  ]
 }

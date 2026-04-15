@@ -1,10 +1,10 @@
 import presetRemToPx from '@unocss/preset-rem-to-px'
-import { defineConfig, presetUno, presetAttributify } from 'unocss'
+import { defineConfig, presetAttributify, presetWind3 } from 'unocss'
 
 // https://unocss.dev/interactive/
 export default defineConfig({
   presets: [
-    presetUno(),
+    presetWind3(),
     presetAttributify({
       prefix: 'un-',
       prefixedOnly: false
@@ -12,22 +12,111 @@ export default defineConfig({
     }),
     presetRemToPx()
   ],
-  // @ts-ignore opacity: active, disabled
-  rules: [[/^opacity-(active|disabled)$/, ([, d]) => ({ opacity: `var(--td-${d}-opacity)` })]],
+  // rules: [[/^opacity-brand-(\w+)$/, ([, d]) => ({ opacity: `var(--${d}-opacity)` })]],
   theme: {
     colors: {
-      primary: 'var(--td-brand-color)', // class="bg-primary"
-      success: 'var(--td-success-color)',
-      error: 'var(--td-error-color)',
-      danger: 'var(--td-error-color)',
-      warning: 'var(--td-warning-color)',
-      text: 'var(--td-text-primary)',
-      text2: 'var(--td-text-secondary)',
-      text3: 'var(--td-text-disabled)',
-      active: 'var(--td-brand-color)',
-      background: 'var(--td-bg-color-page)',
-      background2: 'var(--td-bg-color-container)',
-      border: 'var(--td-border-level-1)'
+      // 文字 & 图标 颜色
+      fontWhite1: 'var(--td-font-white-1)',
+      fontWhite2: 'var(--td-font-white-2)',
+      fontWhite3: 'var(--td-font-white-3)',
+      fontWhite4: 'var(--td-font-white-4)',
+      fontGray1: 'var(--td-font-gray-1)',
+      fontGray2: 'var(--td-font-gray-2)',
+      fontGray3: 'var(--td-font-gray-3)',
+      fontGray4: 'var(--td-font-gray-4)',
+
+      // 基础颜色
+      brand: 'var(--td-brand-color)', // 色彩-品牌-可操作
+      brandFocus: 'var( --td-brand-color-focus)', // focus态，包括鼠标和键盘
+      brandActive: 'var(--td-brand-color-active)', // 点击态
+      brandDisabled: 'var(--td-brand-color-disabled)', // 禁用态
+      brandLight: 'var(--td-brand-color-light)', // 浅色的选中态
+      brandLightActive: 'var(--td-brand-color-light-active)', // 浅色的选中态 hover
+
+      // 警告色
+      warning: 'var(--td-warning-color)', // 色彩-功能-警告
+      warningFocus: 'var(--td-warning-color-focus)',
+      warningActive: 'var(--td-warning-color-active)',
+      warningDisabled: 'var(--td-warning-color-disabled)',
+      warningLight: 'var(--td-warning-color-light)',
+      warningLightActive: 'var(--td-warning-color-light-active)',
+
+      // 失败/错误色
+      error: 'var(--td-error-color)', // 色彩-功能-失败
+      errorFocus: 'var(--td-error-color-focus)',
+      errorActive: 'var(--td-error-color-active)',
+      errorDisabled: 'var(--td-error-color-disabled)',
+      errorLight: 'var(--td-error-color-light)',
+      errorLightActive: 'var(--td-error-color-light-active)',
+
+      // 成功色扩展
+      success: 'var(--td-success-color)', // 色彩-功能-成功
+      successFocus: 'var(--td-success-color-focus)',
+      successActive: 'var(--td-success-color-active)',
+      successDisabled: 'var(--td-success-color-disabled)',
+      successLight: 'var(--td-success-color-light)',
+      successLightActive: 'var(--td-success-color-light-active)',
+
+      // 遮罩
+      mask: 'var(--td-mask-active)', // 遮罩-弹出
+      maskDisabled: 'var(--td-mask-disabled)', // 遮罩-禁用
+      maskBackground: 'var(--td-mask-background)', // 二维码遮罩
+
+      // 背景色
+      bgPage: 'var(--td-bg-color-page)', // 色彩 - page
+      bgContainer: 'var(--td-bg-color-container)', // 色彩 - 容器
+      bgContainerActive: 'var(--td-bg-color-container-active)', // 色彩 - 容器 - active
+      bgSecondaryContainer: 'var(--td-bg-color-secondarycontainer)', // 色彩 - 次级容器
+      bgSecondaryContainerActive: 'var(--td-bg-color-secondarycontainer-active)', // 色彩 - 次级容器 - active
+      bgComponent: 'var(--td-bg-color-component)', // 色彩 - 组件
+      bgComponentActive: 'var(--td-bg-color-component-active)', // 色彩 - 组件 - active
+      bgSecondaryComponent: 'var(--td-bg-color-secondarycomponent)', // 色彩 - 次级组件
+      bgSecondaryComponentActive: 'var(--td-bg-color-secondarycomponent-active)', // 色彩 - 次级组件 - active
+      bgComponentDisabled: 'var(--td-bg-color-component-disabled)', // 色彩 - 组件 - disabled
+
+      // 特殊组件背景色，目前只用于 button、input 组件多主题场景，浅色主题下固定为白色，深色主题下为 transparent 适配背景颜色
+      bgSpecialComponent: 'var(--td-bg-color-specialcomponent)',
+
+      // 文本颜色
+      textPrimary: 'var(--td-text-color-primary)', // 色彩-文字-主要
+      textSecondary: 'var(--td-text-color-secondary)', // 色彩-文字-次要
+      textPlaceholder: 'var(--td-text-color-placeholder)', // 色彩-文字-占位符/说明
+      textDisabled: 'var(--td-text-color-disabled)', // 色彩-文字-禁用
+      textAnti: 'var(--td-text-color-anti)', // 色彩-文字-反色
+      textBrand: 'var(--td-text-color-brand)', // 色彩-文字-品牌
+      textLink: 'var(--td-text-color-link)', // 色彩-文字-链接
+      textWatermark: 'var(--td-text-color-watermark)', // 色彩-文字-水印颜色
+
+      // 分割线
+      borderLevel1: 'var(--td-border-level-1-color)',
+      componentStroke: 'var(--td-component-stroke)',
+      // 边框
+      borderLevel2: 'var(--td-border-level-2-color)',
+      componentBorder: 'var(--td-component-border)',
+
+      // 基础/下层 投影 hover 使用的组件包括：表格
+      shadow1: 'var(--td-shadow-1)',
+      // 中层投影 下拉 使用的组件包括：下拉菜单 / 气泡确认框 / 选择器
+      shadow2: 'var(--td-shadow-2)',
+      // 上层投影（警示/弹窗）使用的组件包括：全局提示 / 消息通知
+      shadow3: 'var(--td-shadow-3)',
+      shadow4: 'var(--td-shadow-4)',
+
+      // 内投影 用于弹窗类组件（气泡确认框 / 全局提示 / 消息通知）的内描边
+      shadowInsetTop: 'var(--td-shadow-inset-top)',
+      shadowInsetRight: 'var(--td-shadow-inset-right)',
+      shadowInsetBottom: 'var(--td-shadow-inset-bottom)',
+      shadowInsetLeft: 'var(--td-shadow-inset-left)',
+
+      // table 特定阴影
+      tableShadowColor: 'var(--td-table-shadow-color)',
+
+      // 滚动条颜色
+      scrollbar: 'var(--td-scrollbar-color)',
+      // 滚动条悬浮颜色（hover）
+      scrollbarHover: 'var(--td-scrollbar-hover-color)',
+      // 滚动条轨道颜色，不能是带透明度，否则纵向滚动时，横向滚动条会穿透
+      scrollTrack: 'var(--td-scroll-track-color)'
     }
   }
 })

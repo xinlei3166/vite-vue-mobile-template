@@ -70,7 +70,7 @@ const search = reactive<Record<string, any>>({
   .list-item-title-time,
   .list-item-msg {
     font-size: 24px;
-    color: @text-color-2;
+    color: theme('colors.textSecondary');
   }
 }
 </style>
