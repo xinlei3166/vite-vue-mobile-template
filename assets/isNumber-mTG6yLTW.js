@@ -1,0 +1,1 @@
+import{X as e,Z as t}from"./hover-ZkUGyaNS.js";var n=`[object Number]`;function r(r){return typeof r==`number`||e(r)&&t(r)==n}export{r as t};

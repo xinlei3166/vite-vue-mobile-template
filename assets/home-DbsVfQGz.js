@@ -1,0 +1,1 @@
+import{A as e,d as t,h as n,l as r,nt as i,tt as a}from"./vue.esm-bundler-CP1kyIx4.js";import{t as o}from"./_plugin-vue_export-helper-DSrzDOgY.js";var s={class:`card`},c={class:`title`},l=o(n({__name:`index`,setup(n){return(n,o)=>(e(),t(`div`,s,[r(`div`,c,i(a(`Vue Mobile App`)),1)]))}}),[[`__scopeId`,`data-v-79922cbf`]]);export{l as default};

@@ -1,0 +1,1 @@
+var e=new Set,t={warn:function(e,t){},warnOnce:function(t,n){var r=`TDesign ${t} Warn: ${n}`;e.has(r)||e.add(r)},error:function(e,t){},errorOnce:function(t,n){var r=`TDesign ${t} Error: ${n}`;e.has(r)||e.add(r)},info:function(e,t){}};export{t};
