@@ -1,5 +1,6 @@
 import type { Ref, ComputedRef } from 'vue'
 import { ref } from 'vue'
+import type { Pagination } from '@packages/types'
 import { showToast } from '@packages/utils'
 import type { ExcelColumn } from '@packages/utils'
 import { useExcel } from './excel'
@@ -7,8 +8,9 @@ import { usePagination } from './table'
 
 interface DataOptions {
   params?: ComputedRef<Record<string, any>> | Record<string, any>
-  pagination?: Record<string, any> | false
+  pagination?: Pagination | false
   cb?: ({ sourceData, data }: { sourceData: Ref<any>; data: Ref<any> }) => void
+  onTableChange?: Function
   dataKey?: any
   method?: string
   codeKey?: string
@@ -19,10 +21,11 @@ interface DataOptions {
  * get data
  * @param api 请求方法
  * @param params 请求参数，此处应该传一个 ComputedRef 类型的对象
+ * @param method 请求方法 get post
  * @param pagination table pagination 分页器参数, false 表示不分页
  * @param dataKey 数据key
  * @param cb callback
- * @param method 请求方法 get post
+ * @param onTableChange table change
  * @param codeKey 请求响应 codeKey
  * @param successCode 请求响应成功 code
  */
@@ -30,9 +33,10 @@ export function useData(
   api: Function,
   {
     params,
-    pagination = {},
-    dataKey = 'list',
+    pagination,
+    dataKey = 'records',
     cb,
+    onTableChange: _onTableChange,
     method = 'get',
     codeKey = 'code',
     successCode = 0
@@ -44,9 +48,9 @@ export function useData(
 
   const init = async (_params: Record<string, any> = {}) => {
     loading.value = true
-    const pageSize = pagination ? pag.pageSize : undefined
     const page = pagination ? pag.current : undefined
-    let mergedParams = { pageSize, page, ...params?.value, ..._params }
+    const pageSize = pagination ? pag.pageSize : undefined
+    let mergedParams = { page, page_size: pageSize, ...params?.value, ..._params }
     if (method === 'get') {
       mergedParams = { params: mergedParams }
     }
@@ -68,13 +72,26 @@ export function useData(
     await init(_params)
   }
 
+  async function onTableChange(
+    pagination: Pagination,
+    filters: any,
+    sorter: any,
+    { currentDataSource }: any
+  ) {
+    pag.current = pagination.current
+    pag.pageSize = pagination.pageSize
+    await init()
+    _onTableChange?.(pagination, filters, sorter, { currentDataSource })
+  }
+
   return {
     loading,
     sourceData,
     data,
     pagination: pag,
     init,
-    onSearch
+    onSearch,
+    onTableChange
   }
 }
 
@@ -106,7 +123,7 @@ export function useExport(
     excelFields,
     filename = 'excel.xlsx',
     msg = '导出成功',
-    dataKey = 'list',
+    dataKey = 'records',
     codeKey = 'code',
     successCode = 0
   }: ExportOptions

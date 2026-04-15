@@ -27,7 +27,6 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "dependencies": {
-    "@ant-design/icons-vue": "^7.0.1",
     "@packages/components": "workspace:*",
     "@packages/hooks": "workspace:*",
     "@packages/lib": "workspace:*",
