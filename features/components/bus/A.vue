@@ -1,21 +1,21 @@
 <template>
   <div class="title">A组件</div>
   <div class="title">当前结果：{{ number }}</div>
-  <van-button type="primary" size="small" block @click="onAdd">增加</van-button>
+  <t-button type="primary" size="small" block @click="onAdd">增加</t-button>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, inject } from 'vue'
-import type { Emitter } from 'mitt'
+import { useEvent } from '@packages/hooks'
 
 export default defineComponent({
   setup() {
-    const bus = inject('bus') as Emitter<any>
+    const event = useEvent()
     const number = ref(0)
 
     function onAdd() {
       number.value++
-      bus.emit('change-number', number.value)
+      event.emit('change-number', number.value)
     }
 
     return { number, onAdd }

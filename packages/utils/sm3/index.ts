@@ -1,3 +1,4 @@
+// @ts-nocheck
 import sm3 from './sm3'
 
 /**

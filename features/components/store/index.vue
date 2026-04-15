@@ -1,11 +1,11 @@
 <template>
   <div class="components-card card">
     <div class="title">Store</div>
-    <van-field v-model="name" center clearable placeholder="请输入用户名">
-      <template #button>
-        <van-button size="small" type="primary" @click="onSubmit">提交</van-button>
+    <t-input v-model="name" clearable placeholder="请输入用户名">
+      <template #suffix>
+        <t-button size="small" type="primary" @click="onSubmit">提交</t-button>
       </template>
-    </van-field>
+    </t-input>
     <div class="title">当前用户：{{ userinfo.userName }}</div>
   </div>
 </template>

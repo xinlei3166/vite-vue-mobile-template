@@ -1,8 +1,8 @@
 <template>
   <div class="exception-wrap">
-    <van-empty description="抱歉，你访问的页面不存在">
+    <t-empty description="抱歉，你访问的页面不存在">
       <Buttons />
-    </van-empty>
+    </t-empty>
   </div>
 </template>
 

@@ -1,4 +1,4 @@
-import { showToast } from 'vant'
+import { showToast } from '@packages/utils'
 
 export const delay = (ms: any) => new Promise(resolve => setTimeout(resolve, ms))
 

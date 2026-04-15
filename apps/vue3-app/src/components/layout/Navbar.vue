@@ -2,7 +2,7 @@
 <template>
   <div id="layout">
     <!--left-text="返回"-->
-    <van-nav-bar
+    <t-navbar
       class="layout-navbar"
       :title="title"
       :left-arrow="leftArrow"
@@ -38,6 +38,6 @@ provide('data', data)
 
 <style lang="less" scoped>
 #layout {
-  --van-nav-bar-icon-color: @text-color-2;
+  --van-nav-bar-icon-color: theme('colors.textSecondary');
 }
 </style>

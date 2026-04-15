@@ -1,7 +1,7 @@
 import type { AxiosRequestConfig } from 'axios'
 import axios from 'axios'
 import dayjs from 'dayjs'
-import { showToast } from 'vant'
+import { showToast } from '@packages/utils'
 import { deepClone, getToken } from '@packages/utils'
 
 const config = {

@@ -1,40 +1,28 @@
 <template>
   <div class="register">
     <h2 class="register-title">注册账号</h2>
-    <van-form class="register-form" @submit="onSubmit">
-      <van-cell-group class="register-field" inset>
-        <van-field
-          v-model="form.account"
-          name="account"
-          label="账号"
-          placeholder="请输入账号"
-          :rules="[{ required: true, message: '请输入账号' }]"
-        />
-      </van-cell-group>
-      <van-cell-group class="register-field" inset>
-        <van-field
-          v-model="form.phone"
-          type="tel"
+    <t-form class="register-form" @submit="onSubmit">
+      <div class="register-field">
+        <t-form-item name="account" :rules="[{ required: true, message: '请输入账号' }]">
+          <t-input v-model="form.account" label="账号" placeholder="请输入账号" />
+        </t-form-item>
+      </div>
+      <div class="register-field">
+        <t-form-item
           name="phone"
-          label="手机号"
-          placeholder="请输入手机号"
           :rules="[
             { required: true, message: '请输入手机号' },
             { validator: validatePhone, message: '手机号格式不正确' }
           ]"
-        />
-      </van-cell-group>
-      <van-cell-group class="register-field" inset>
-        <van-field
-          v-model="form.code"
-          center
-          type="tel"
-          name="code"
-          label="验证码"
-          placeholder="请输入验证码"
         >
-          <template #button>
-            <van-button
+          <t-input v-model="form.phone" type="tel" label="手机号" placeholder="请输入手机号" />
+        </t-form-item>
+      </div>
+      <div class="register-field">
+        <t-form-item name="code" label="验证码">
+          <div class="code-input-wrapper">
+            <t-input v-model="form.code" placeholder="请输入验证码" />
+            <t-button
               v-if="countdown === 0"
               :disabled="!validatePhone(form.phone)"
               size="small"
@@ -42,38 +30,36 @@
               @click="onSendCode"
             >
               发送验证码
-            </van-button>
-            <van-button v-else disabled size="small">{{ countdown }}s后重试</van-button>
-          </template>
-        </van-field>
-      </van-cell-group>
-      <van-cell-group class="register-field" inset>
-        <van-field
-          v-model="form.password1"
-          type="password"
-          name="password1"
-          label="密码"
-          placeholder="请输入密码"
-          :rules="[{ required: true, message: '请输入密码' }]"
-        />
-      </van-cell-group>
-      <van-cell-group class="register-field" inset>
-        <van-field
-          v-model="form.password2"
-          type="password"
+            </t-button>
+            <t-button v-else disabled size="small">{{ countdown }}s后重试</t-button>
+          </div>
+        </t-form-item>
+      </div>
+      <div class="register-field">
+        <t-form-item name="password1" :rules="[{ required: true, message: '请输入密码' }]">
+          <t-input v-model="form.password1" type="password" label="密码" placeholder="请输入密码" />
+        </t-form-item>
+      </div>
+      <div class="register-field">
+        <t-form-item
           name="password2"
-          label="确认密码"
-          placeholder="请再次输入密码"
           :rules="[
             { required: true, message: '请再次输入密码' },
             { validator: validateTwoPassword, message: '两次密码输入不一致' }
           ]"
-        />
-      </van-cell-group>
-      <div class="btn-wrap">
-        <van-button block type="primary" native-type="submit">注册</van-button>
+        >
+          <t-input
+            v-model="form.password2"
+            type="password"
+            label="确认密码"
+            placeholder="请再次输入密码"
+          />
+        </t-form-item>
       </div>
-    </van-form>
+      <div class="btn-wrap">
+        <t-button block type="primary" native-type="submit">注册</t-button>
+      </div>
+    </t-form>
     <div class="tip-btn-wrap">
       <span>
         已有账号？
@@ -86,10 +72,10 @@
 <script setup lang="ts">
 import { ref, reactive, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
-import { showToast } from 'vant'
-import { login } from '@/api'
-import { doSM3, phonePattern } from '@packages/utils'
 import { useTimer } from '@packages/hooks'
+import { showToast } from '@packages/utils'
+import { doSM3, phonePattern } from '@packages/utils'
+import { login } from '@/api'
 
 // ====================== Hooks ======================
 const router = useRouter()

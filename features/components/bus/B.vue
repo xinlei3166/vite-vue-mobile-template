@@ -5,23 +5,23 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted, onBeforeUnmount, inject } from 'vue'
-import type { Emitter } from 'mitt'
+import { useEvent } from '@packages/hooks'
 
 export default defineComponent({
   setup() {
-    const bus = inject('bus') as Emitter<any>
+    const event = useEvent()
     const number = ref(0)
 
-    const changeNumber = value => {
+    const changeNumber = (value: any) => {
       number.value = value
     }
 
     onMounted(() => {
-      bus.on('change-number', changeNumber)
+      event.on('change-number', changeNumber)
     })
 
     onBeforeUnmount(() => {
-      bus.off('change-number', changeNumber)
+      event.off('change-number', changeNumber)
     })
 
     return { number }

@@ -1,5 +1,5 @@
-import { defineConfig, presetUno, presetAttributify } from 'unocss'
 import presetRemToPx from '@unocss/preset-rem-to-px'
+import { defineConfig, presetUno, presetAttributify } from 'unocss'
 
 // https://unocss.dev/interactive/
 export default defineConfig({
@@ -13,21 +13,21 @@ export default defineConfig({
     presetRemToPx()
   ],
   // @ts-ignore opacity: active, disabled
-  rules: [[/^opacity-(active|disabled)$/, ([, d]) => ({ opacity: `var(--van-${d}-opacity)` })]],
+  rules: [[/^opacity-(active|disabled)$/, ([, d]) => ({ opacity: `var(--td-${d}-opacity)` })]],
   theme: {
     colors: {
-      primary: 'var(--van-primary-color)', // class="bg-primary"
-      success: 'var(--van-success-color)',
-      error: 'var(--van-danger-color)',
-      danger: 'var(--van-danger-color)',
-      warning: 'var(--van-warning-color)',
-      text: 'var(--van-text-color)',
-      text2: 'var(--van-text-color-2)',
-      text3: 'var(--van-text-color-3)',
-      active: 'var(--van-active-color)',
-      background: 'var(--van-background)',
-      background2: 'var(--van-background2)',
-      border: 'var(--van-border-color)'
+      primary: 'var(--td-brand-color)', // class="bg-primary"
+      success: 'var(--td-success-color)',
+      error: 'var(--td-error-color)',
+      danger: 'var(--td-error-color)',
+      warning: 'var(--td-warning-color)',
+      text: 'var(--td-text-primary)',
+      text2: 'var(--td-text-secondary)',
+      text3: 'var(--td-text-disabled)',
+      active: 'var(--td-brand-color)',
+      background: 'var(--td-bg-color-page)',
+      background2: 'var(--td-bg-color-container)',
+      border: 'var(--td-border-level-1)'
     }
   }
 })

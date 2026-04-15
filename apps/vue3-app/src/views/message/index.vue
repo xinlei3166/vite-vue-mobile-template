@@ -1,15 +1,10 @@
 <template>
-  <van-search
-    v-model="search.keyword"
-    class="search"
-    shape="round"
-    placeholder="请输入搜索关键词"
-  />
+  <t-search v-model="search.keyword" class="search" shape="round" placeholder="请输入搜索关键词" />
   <ul class="list flex flex-col">
     <li v-for="(item, index) in data" :key="index" class="list-item flex items-center">
       <div class="list-item-left flex-shrink-0">
         <span class="icon-wrap" order="1">
-          <van-icon class="icon" name="star-o" />
+          <t-icon class="icon" name="star" />
         </span>
       </div>
       <div class="list-item-right flex flex-1 flex-col justify-between">

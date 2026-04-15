@@ -4,7 +4,7 @@
     <div class="title">可以通过点击父组件中的增加按钮，观察B组件的结果显示</div>
     <div class="title">父组件</div>
     <div class="title">当前结果：{{ number }}</div>
-    <van-button type="primary" size="small" block @click="onAdd">增加</van-button>
+    <t-button type="primary" size="small" block @click="onAdd">增加</t-button>
     <div class="title">----------------------------------------</div>
     <Child />
   </div>

@@ -1,22 +1,21 @@
 import axios from 'axios'
-import { showToast, showLoadingToast, closeToast } from 'vant'
 import type { Config, InternalConfig, RequestsConfig, Method } from '@packages/types'
 import { ContentTypeEnum } from '@packages/types/enums'
+import { showToast, showLoadingToast, closeToast } from '@packages/utils'
 import { getToken, writeFile, writeBase64File } from '@packages/utils'
 // import { useTokenRefresh } from './useTokenRefresh'
 
-let toast: any
 function startLoading(showLoading = false) {
   if (!showLoading) return
-  toast = showLoadingToast({
+  showLoadingToast({
     duration: 0,
     message: '加载中...',
-    forbidClick: true
+    preventScrollThrough: true
   })
 }
 function endLoading(showLoading = false) {
   if (!showLoading) return
-  toast?.close()
+  closeToast()
 }
 
 const createRequests = (requestsConfig: RequestsConfig = {}) => {

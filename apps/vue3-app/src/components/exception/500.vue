@@ -1,8 +1,8 @@
 <template>
   <div class="exception-wrap">
-    <van-empty description="抱歉，服务器出错了">
+    <t-empty description="抱歉，服务器出错了">
       <Buttons />
-    </van-empty>
+    </t-empty>
   </div>
 </template>
 

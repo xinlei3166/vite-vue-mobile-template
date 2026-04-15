@@ -1,10 +1,11 @@
-import { createApp as _createApp } from 'vue'
 import { createPinia } from 'pinia'
-import piniaPersist from 'pinia-plugin-persist'
+import persistedState from 'pinia-plugin-persistedstate'
 import VConsole from 'vconsole'
+import { createApp as _createApp } from 'vue'
+import plugins from '@packages/plugins'
 import App from './App.vue'
 import router from './router'
-import plugins from '@packages/plugins'
+import 'tdesign-mobile-vue/esm/style/index.css'
 import '@packages/styles/index.less'
 import '@packages/styles/reset.less'
 import '@/styles/index.less'
@@ -21,7 +22,7 @@ function createApp() {
 
   const app = _createApp(App)
   const pinia = createPinia()
-  pinia.use(piniaPersist)
+  pinia.use(persistedState)
   app.use(pinia)
   app.use(router)
   app.use(plugins)

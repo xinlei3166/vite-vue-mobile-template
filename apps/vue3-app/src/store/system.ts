@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
 
+const storageKeyPrefix = import.meta.env.VITE_APP_STORAGE_KEY_PREFIX
+
 export interface SystemState {
   showLandingPage: boolean
 }
@@ -17,12 +19,7 @@ export const useSystemStore = defineStore('system', {
     }
   }
   // persist: {
-  //   enabled: true,
-  //   strategies: [
-  //     {
-  //       key: 'system',
-  //       storage: localStorage
-  //     }
-  //   ]
+  //   key: storageKeyPrefix + 'System',
+  //   storage: localStorage
   // }
 })

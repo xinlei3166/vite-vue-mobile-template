@@ -1,7 +1,7 @@
-import { showToast, closeToast } from 'vant'
 import { useRequests } from '@packages/lib'
 import type { Request } from '@packages/types'
 import { removeToken } from '@packages/utils'
+import { showToast, closeToast } from '@packages/utils'
 import router from '@/router'
 import { useMenuStore } from '@/store/menu'
 import { useUserStore } from '@/store/user'

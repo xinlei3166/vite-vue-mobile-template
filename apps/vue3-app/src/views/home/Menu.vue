@@ -5,7 +5,7 @@
       @click="onClickMenu('/components/store')"
     >
       <span class="icon-wrap" order="1">
-        <van-icon class="icon" name="edit" />
+        <t-icon class="icon" name="edit" />
       </span>
       <span class="text">Store</span>
     </li>
@@ -14,7 +14,7 @@
       @click="onClickMenu('/components/provide-inject')"
     >
       <span class="icon-wrap" order="3">
-        <van-icon class="icon" name="share-o" />
+        <t-icon class="icon" name="share" />
       </span>
       <span class="text">Provide</span>
     </li>
@@ -23,7 +23,7 @@
       @click="onClickMenu('/components/bus')"
     >
       <span class="icon-wrap" order="2">
-        <van-icon class="icon" name="guide-o" />
+        <t-icon class="icon" name="guide" />
       </span>
       <span class="text">Bus</span>
     </li>
@@ -32,7 +32,7 @@
       @click="onClickMenu('/components/table')"
     >
       <span class="icon-wrap" order="4">
-        <van-icon class="icon" name="notes-o" />
+        <t-icon class="icon" name="list" />
       </span>
       <span class="text">Table</span>
     </li>
@@ -41,7 +41,7 @@
       @click="onClickMenu('/components/sortable')"
     >
       <span class="icon-wrap" order="5">
-        <van-icon class="icon" name="apps-o" />
+        <t-icon class="icon" name="apps" />
       </span>
       <span class="text">Sortable</span>
     </li>

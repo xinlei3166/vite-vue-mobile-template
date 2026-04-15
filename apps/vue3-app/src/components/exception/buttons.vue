@@ -1,5 +1,5 @@
 <template>
-  <van-button type="primary" class="bottom-button" @click="onGoHome">返回首页</van-button>
+  <t-button type="primary" class="bottom-button" @click="onGoHome">返回首页</t-button>
 </template>
 
 <script setup lang="ts">

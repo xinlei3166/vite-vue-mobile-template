@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { showToast } from 'vant'
+import { showToast } from '@packages/utils'
 type UploadProps = any
 type UploadFile = any
 export interface UploadConfig {

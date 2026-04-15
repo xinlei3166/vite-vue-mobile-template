@@ -2,10 +2,7 @@
   <ul class="list flex flex-col">
     <li v-for="(item, index) in data" :key="index" class="list-item flex">
       <div class="list-item-left flex-shrink-0">
-        <img
-          class="list-item-img"
-          src="https://fastly.jsdelivr.net/npm/@vant/assets/apple-1.jpeg"
-        />
+        <img class="list-item-img" src="https://tdesign.gtimg.com/demo/demo-image-1.png" />
       </div>
       <div class="list-item-right flex flex-col justify-between">
         <div class="list-item-title">

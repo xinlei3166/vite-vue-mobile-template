@@ -1,30 +1,21 @@
 <template>
   <div class="login">
     <h2 class="login-title">登录账号</h2>
-    <van-form class="login-form" @submit="onSubmit">
-      <van-cell-group class="login-field" inset>
-        <van-field
-          v-model="form.account"
-          name="account"
-          label="账号"
-          placeholder="请输入账号"
-          :rules="[{ required: true, message: '请输入账号' }]"
-        />
-      </van-cell-group>
-      <van-cell-group class="login-field" inset>
-        <van-field
-          v-model="form.password"
-          type="password"
-          name="password"
-          label="密码"
-          placeholder="请输入密码"
-          :rules="[{ required: true, message: '请输入密码' }]"
-        />
-      </van-cell-group>
-      <div class="btn-wrap">
-        <van-button block type="primary" native-type="submit">登录</van-button>
+    <t-form class="login-form" @submit="onSubmit">
+      <div class="login-field">
+        <t-form-item name="account" :rules="[{ required: true, message: '请输入账号' }]">
+          <t-input v-model="form.account" label="账号" placeholder="请输入账号" />
+        </t-form-item>
       </div>
-    </van-form>
+      <div class="login-field">
+        <t-form-item name="password" :rules="[{ required: true, message: '请输入密码' }]">
+          <t-input v-model="form.password" type="password" label="密码" placeholder="请输入密码" />
+        </t-form-item>
+      </div>
+      <div class="btn-wrap">
+        <t-button block type="primary" native-type="submit">登录</t-button>
+      </div>
+    </t-form>
     <div class="tip-btn-wrap">
       <span>
         没有账号？
@@ -37,9 +28,9 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
-import { showToast } from 'vant'
-import { login } from '@/api'
+import { showToast } from '@packages/utils'
 import { doSM3, setToken } from '@packages/utils'
+import { login } from '@/api'
 import { useMenuStore } from '@/store/menu'
 import { useUserStore } from '@/store/user'
 

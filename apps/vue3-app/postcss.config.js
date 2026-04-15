@@ -22,7 +22,7 @@ module.exports = {
       landscape: false, // 是否处理横屏情况,
       overrideOptions: ({ file }) => {
         let viewportWidth = 750
-        if (file.includes(path.join('node_modules', 'vant'))) {
+        if (file.includes(path.join('node_modules', 'tdesign-mobile-vue'))) {
           viewportWidth = 375
         }
         return { viewportWidth }
@@ -30,11 +30,11 @@ module.exports = {
     }
     // 'postcss-pxtorem': {
     //   rootValue({ file }) {
-    //     return file.indexOf('vant') !== -1 ? 37.5 : 75
+    //     return file.indexOf('tdesign-mobile-vue') !== -1 ? 37.5 : 75
     //   },
     //   unitPrecision: 2,
     //   propList: ['*'],
-    //   // selectorBlackList: ['van-'], // 排除van-开头(即vant库中的css样式)的class名
+    //   // selectorBlackList: ['t-'], // 排除t-开头(即tdesign库中的css样式)的class名
     //   replace: true,
     //   mediaQuery: false,
     //   minPixelValue: 0
