@@ -1,7 +1,12 @@
 <template>
   <div class="exception-wrap">
     <t-empty description="抱歉，服务器出错了">
-      <Buttons />
+      <template #icon>
+        <t-icon name="error-circle-filled" class="text-error" />
+      </template>
+      <template #action>
+        <Buttons />
+      </template>
     </t-empty>
   </div>
 </template>

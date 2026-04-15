@@ -1,7 +1,12 @@
 <template>
   <div class="exception-wrap">
     <t-empty description="抱歉，你无权访问该页面">
-      <Buttons />
+      <template #icon>
+        <t-icon name="lock-on-filled" class="text-warning" />
+      </template>
+      <template #action>
+        <Buttons />
+      </template>
     </t-empty>
   </div>
 </template>
