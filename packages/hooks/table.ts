@@ -17,7 +17,7 @@ const defaultPagination: Pagination = {
   showPreviousAndNextBtn: true
 }
 
-export function usePagination(pagination?: Record<string, any>) {
+export function usePagination(pagination?: any) {
   const pag = pagination || {}
   const _pagination = reactive<Pagination>({ ...defaultPagination, ...pag })
 
