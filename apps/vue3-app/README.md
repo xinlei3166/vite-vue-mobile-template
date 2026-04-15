@@ -4,7 +4,7 @@ vue3 app
 
 ## Framework packages
 
-Vite4 + Vue3 + Pinia + Vue Router + TypeScript + TDesign Mobile Vue
+Vite + Vue + Pinia + Vue Router + TypeScript + TDesign Mobile Vue
 
 ## Package Manager
 
