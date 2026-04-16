@@ -121,14 +121,13 @@ const validateTwoPassword = (val: any) => {
 
 const onSubmit = async (context: any) => {
   console.log('onSubmit', context)
-  if (context.validateResult === true) {
-    if (!form.code) {
-      showToast('请输入验证码')
-      return
-    }
-    showToast('注册成功')
-    onLogin()
+  if (context.validateResult !== true) return
+  if (!form.code) {
+    showToast('请输入验证码')
+    return
   }
+  showToast('注册成功')
+  onLogin()
 }
 
 const countdown = ref(0)
