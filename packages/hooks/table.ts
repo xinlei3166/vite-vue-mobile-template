@@ -9,7 +9,7 @@ const defaultPagination: Pagination = {
   totalContent: true,
   size: 'medium',
   theme: 'default',
-  pageSizeOptions: ['10', '20', '30', '50', '100'],
+  pageSizeOptions: [10, 20, 30, 50, 100],
   showFirstAndLastPageBtn: false,
   showJumper: true,
   showPageNumber: true,

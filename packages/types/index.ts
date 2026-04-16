@@ -10,7 +10,7 @@ export interface Pagination {
   totalContent: any
   size: string
   theme: string
-  pageSizeOptions: string[]
+  pageSizeOptions: any[]
   showFirstAndLastPageBtn: boolean
   showJumper: boolean
   showPageNumber: boolean

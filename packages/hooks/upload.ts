@@ -43,10 +43,10 @@ export function useUpload({ maxCount, maxSize, accept, upload = true }: UploadCo
     return false
   }
 
-  const onRemove: UploadProps['onRemove'] = (file: any) => {
-    const index = fileList.value?.indexOf(file)
+  const onRemove: UploadProps['onRemove'] = (context: any) => {
+    const { index } = context
     const newFileList = fileList.value?.slice()
-    newFileList?.splice(index!, 1)
+    newFileList?.splice(index, 1)
     fileList.value = newFileList
   }
 
