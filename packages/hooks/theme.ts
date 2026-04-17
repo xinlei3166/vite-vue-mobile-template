@@ -11,6 +11,7 @@ export interface Theme {
   headerTheme: boolean
   showSubMenuName: boolean
   showBreadcrumb: boolean
+  themeColor: string
 }
 
 const theme = ref<Theme>({
@@ -23,7 +24,8 @@ const theme = ref<Theme>({
   collapsedWidth: '80px',
   headerTheme: false,
   showSubMenuName: false, // 控制左侧菜单折叠时，是否显示文字
-  showBreadcrumb: true // 是否显示面包屑
+  showBreadcrumb: false, // 是否显示面包屑
+  themeColor: '#0077fa'
 })
 
 export const useTheme = function () {
