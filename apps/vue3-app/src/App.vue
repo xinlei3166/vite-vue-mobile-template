@@ -5,17 +5,19 @@
 </template>
 
 <script lang="ts" setup>
+import type { GlobalConfigProvider } from 'tdesign-mobile-vue'
 import dayjs from 'dayjs'
+import zhConfig from 'tdesign-mobile-vue/es/locale/zh_CN'
 import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { getToken } from '@packages/utils'
 import { checkExternalWhiteRoute } from '@/router'
-import { useUserStore } from '@/store/user'
 import 'dayjs/locale/zh-cn'
+import { useUserStore } from '@/store/user'
 
 dayjs.locale('zh-cn')
 
-const globalConfig: any = {}
+const globalConfig: GlobalConfigProvider = zhConfig as any
 
 const router = useRouter()
 const userStore = useUserStore()

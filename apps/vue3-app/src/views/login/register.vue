@@ -121,7 +121,8 @@ const validateTwoPassword = (val: any) => {
 
 const onSubmit = async (context: any) => {
   console.log('onSubmit', context)
-  if (context.validateResult !== true) return
+  const { validateResult, values } = context
+  if (validateResult !== true) return
   if (!form.code) {
     showToast('请输入验证码')
     return
