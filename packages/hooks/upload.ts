@@ -4,11 +4,12 @@ import { showToast } from '@packages/utils'
 
 const uploadFile = async (...args: any[]) => {
   console.log('args', args)
-  return { code: 0, msg: '', data: {} }
+  return { code: 0, msg: '', data: { url: '' } }
 }
 
 type UploadProps = any
 type UploadFile = any
+type RequestMethodResponse = any
 export interface UploadConfig {
   upload?: boolean
   maxCount?: number
@@ -64,58 +65,74 @@ export function useUpload({ maxCount, maxSize, accept, upload = true }: UploadCo
     //   .then(() => {
     //     fileList.value = []
     //     uploading.value = false
-    //     showToast('upload successfully.')
+    //     showToast('上传成功')
     //   })
     //   .catch(() => {
     //     uploading.value = false
-    //     showToast('upload failed.')
+    //     showToast('上传失败')
     //   })
   }
 
-  const createCustomRequest = (getParams: () => Record<string, any> = () => ({})) => {
-    return async (options: Record<string, any>) => {
-      const { file, onProgress, onSuccess, onError } = options
+  const createRequestMethod = (
+    getParams: () => Record<string, any> = () => ({})
+  ): UploadProps['requestMethod'] => {
+    return async (fileOrFiles: any) => {
+      const files = Array.isArray(fileOrFiles) ? fileOrFiles : [fileOrFiles]
+      const file = files[0]
 
       // 1. 构造上传参数
       const formData = new FormData()
-      formData.append('file', file)
+      formData.append('file', (file.raw ?? file) as any)
       const params = getParams()
-      const paramskeys = Object.keys(params)
-      if (paramskeys.length) {
-        paramskeys.forEach(key => {
+      const paramKeys = Object.keys(params)
+      if (paramKeys.length) {
+        paramKeys.forEach(key => {
           formData.append(key, params[key])
         })
       }
 
       // 2. 传入定义的缩略图配置
-      const thumb_image_configs = [{ width: 600, quality: 85 }]
-      if (!paramskeys.includes('thumb_image_configs')) {
-        formData.append('thumb_image_configs', JSON.stringify(thumb_image_configs))
+      const thumbImageConfigs = [{ width: 600, quality: 85 }]
+      if (!paramKeys.includes('thumb_image_configs')) {
+        formData.append('thumb_image_configs', JSON.stringify(thumbImageConfigs))
       }
 
       // 3. 执行请求
       try {
         const res = await uploadFile(formData, {
-          headers: { 'Content-Type': ContentTypeEnum.FormData },
-          // 处理进度条
-          onUploadProgress: (event: any) => {
-            const percent = event.total ? Math.floor((event.loaded / event.total) * 100) : 0
-            onProgress({ percent })
-          }
+          headers: { 'Content-Type': ContentTypeEnum.FormData }
+          // onUploadProgress: (event: any) => {
+          //   const percent = event.total ? Math.floor((event.loaded / event.total) * 100) : 0
+          //   console.log('upload progress:', percent)
+          // }
         })
 
         if (!res || res.code !== 0) {
           throw new Error(res.msg || '上传失败')
         }
+
         // showToast('上传成功')
-        onSuccess(res.data, file)
+        // 关键：返回给 TDesign 的结果
+        const successResponse: RequestMethodResponse = {
+          status: 'success',
+          response: { ...res.data, url: res.data?.url, files }
+        }
+        console.log('requestMethod success', successResponse)
+        return successResponse
       } catch (err: any) {
-        showToast(`上传失败: ${err.message}`)
-        onError(err)
+        const errorMessage = `上传失败: ${err.message}`
+        showToast(errorMessage)
+        const failResponse: RequestMethodResponse = {
+          status: 'fail',
+          error: errorMessage,
+          response: { files }
+        }
+        console.error('requestMethod error', err, failResponse)
+        return failResponse
       }
     }
   }
-  const customRequest = createCustomRequest()
+  const requestMethod = createRequestMethod()
 
   const onChange = ({ fileList: newFileList }: any) => {
     const list = newFileList.map((f: any) => {
@@ -124,9 +141,8 @@ export function useUpload({ maxCount, maxSize, accept, upload = true }: UploadCo
       }
       return f
     })
-
     fileList.value = list
-    console.log('fileList', fileList.value)
+    console.log('fileList', list)
   }
 
   return {
@@ -135,8 +151,8 @@ export function useUpload({ maxCount, maxSize, accept, upload = true }: UploadCo
     onRemove,
     beforeUpload,
     onUpload,
-    customRequest,
-    createCustomRequest,
+    requestMethod,
+    createRequestMethod,
     onChange
   }
 }
