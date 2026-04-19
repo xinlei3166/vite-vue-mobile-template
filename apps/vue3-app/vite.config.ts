@@ -28,8 +28,8 @@ export default ({ mode, command }) => {
         output: {
           minify: {
             compress: {
-              dropConsole: command === 'build',
-              dropDebugger: command === 'build'
+              dropConsole: isBuild,
+              dropDebugger: isBuild
             }
           }
         }

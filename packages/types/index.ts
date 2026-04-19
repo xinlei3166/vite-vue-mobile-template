@@ -4,7 +4,7 @@ export * from './requests'
 
 export interface Pagination {
   current: number
-  defaultCurrent: number
+  defaultCurrent?: number
   pageSize: number
   total: number
   totalContent: any

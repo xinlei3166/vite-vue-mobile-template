@@ -1,5 +1,5 @@
 import type { Ref, ComputedRef } from 'vue'
-import { ref } from 'vue'
+import { ref, unref } from 'vue'
 import type { Pagination } from '@packages/types'
 import { showToast } from '@packages/utils'
 import type { ExcelColumn } from '@packages/utils'
@@ -9,8 +9,7 @@ import { usePagination } from './table'
 interface DataOptions {
   params?: ComputedRef<Record<string, any>> | Record<string, any>
   pagination?: Pagination | false
-  cb?: ({ sourceData, data }: { sourceData: Ref<any>; data: Ref<any> }) => void
-  onTableChange?: Function
+  callback?: ({ sourceData, data }: { sourceData: any; data: any }) => void
   dataKey?: any
   method?: string
   codeKey?: string
@@ -25,7 +24,6 @@ interface DataOptions {
  * @param pagination table pagination 分页器参数, false 表示不分页
  * @param dataKey 数据key
  * @param cb callback
- * @param onTableChange table change
  * @param codeKey 请求响应 codeKey
  * @param successCode 请求响应成功 code
  */
@@ -35,8 +33,7 @@ export function useData(
     params,
     pagination,
     dataKey = 'records',
-    cb,
-    onTableChange: _onTableChange,
+    callback,
     method = 'get',
     codeKey = 'code',
     successCode = 0
@@ -50,10 +47,12 @@ export function useData(
     loading.value = true
     const page = pagination ? pag.current : undefined
     const pageSize = pagination ? pag.pageSize : undefined
-    let mergedParams = { page, page_size: pageSize, ...params?.value, ..._params }
+    const rawParams = unref(params)
+    let mergedParams: Record<string, any> = { page_size: pageSize, page, ...rawParams, ..._params }
     if (method === 'get') {
       mergedParams = { params: mergedParams }
     }
+    console.log('mergedParams', mergedParams)
     const res = await api(mergedParams)
     loading.value = false
     if (!res || res[codeKey] !== successCode) return
@@ -64,7 +63,7 @@ export function useData(
       data.value = res.data
     }
     pag.total = res.data?.total || 0
-    cb?.({ sourceData, data })
+    callback?.({ sourceData, data })
   }
 
   const onSearch = async (_params: Record<string, any> = {}) => {
@@ -72,18 +71,21 @@ export function useData(
     await init(_params)
   }
 
-  async function onTableChange(data: any, context: any) {
-    pag.current = data.pagination.current
-    pag.pageSize = data.pagination.pageSize
-    await init()
-    _onTableChange?.(data, context)
+  async function onTableChange(data: any, context: any, _params: Record<string, any> = {}) {
+    console.log('onTableChange', { data, context, _params })
+    const { pagination } = data
+    if (pagination) {
+      pag.current = pagination.current
+      pag.pageSize = pagination.pageSize
+    }
+    await init({ ..._params })
   }
 
   return {
     loading,
     sourceData,
     data,
-    pagination: pag,
+    pagination: pagination === false ? undefined : pag,
     init,
     onSearch,
     onTableChange
@@ -125,7 +127,8 @@ export function useExport(
 ) {
   const getExcelData = async (downloadLoading: Ref<boolean>) => {
     downloadLoading.value = true
-    const res = await api({ params: params?.value })
+    const rawParams = unref(params)
+    const res = await api({ params: rawParams })
     downloadLoading.value = false
     if (!res || res[codeKey] !== successCode) return
     const data = ref([])
