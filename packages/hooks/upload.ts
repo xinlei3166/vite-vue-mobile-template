@@ -4,7 +4,7 @@ import { showToast } from '@packages/utils'
 
 const uploadFile = async (...args: any[]) => {
   console.log('args', args)
-  return { code: 0, msg: '', data: { url: '' } }
+  return { code: 0, msg: '', data: {} } as Record<string, any>
 }
 
 type UploadProps = any
