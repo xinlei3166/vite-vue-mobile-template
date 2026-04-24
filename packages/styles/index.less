@@ -20,7 +20,7 @@
 .iconfont-icon {
   width: 1em;
   height: 1em;
-  vertical-align: -0.15em;
+  vertical-align: -0.15em !important;
   fill: currentColor;
   overflow: hidden;
 }
@@ -55,12 +55,6 @@
   text-overflow: ellipsis;
 }
 
-// dropdown-icon
-.dropdown-icon {
-  font-size: 12px;
-  vertical-align: baseline;
-}
-
 // nprogress style
 #nprogress .bar {
   background: theme('colors.brand');
@@ -81,7 +75,7 @@
   color: theme('colors.error');
 
   &:hover {
-    color: theme('colors.errorActive');
+    color: theme('colors.errorHover');
   }
 }
 
@@ -99,7 +93,7 @@
 
 .text-btn:hover,
 .phone-icon:hover {
-  color: theme('colors.brandActive');
+  color: theme('colors.brandHover');
 }
 
 .text-btn + .text-btn {
@@ -108,9 +102,20 @@
 
 .hover-btn {
   cursor: pointer;
-
   &:hover {
-    color: theme('colors.brandActive') !important;
+    color: theme('colors.brand') !important;
+  }
+}
+.hover-bg-btn {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 16px;
+  &:hover {
+    border-color: var(--td-bg-color-container-active);
+    background-color: var(--td-bg-color-container-active);
   }
 }
 
@@ -130,7 +135,7 @@
 
 // tree
 .tree-card {
-  height: calc(100vh - 64px - 32px);
+  height: 100%;
 }
 .tree-left {
   border-right: 1px solid theme('colors.borderLevel2');
@@ -164,8 +169,10 @@
 
 // status
 .my-status-success {
+  font-size: var(--td-font-size-body-large, 16px);
   color: theme('colors.success');
 }
 .my-status-error {
+  font-size: var(--td-font-size-body-large, 16px);
   color: theme('colors.error');
 }
