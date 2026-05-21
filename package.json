@@ -96,7 +96,8 @@
     "unplugin-auto-import": "^21.0.0",
     "unplugin-vue-components": "^32.0.0",
     "vconsole": "^3.15.1",
-    "vite": "^8.0.8"
+    "vite": "^8.0.8",
+    "vite-plugin-vue-devtools": "^8.1.2"
   },
   "peerDependencies": {
     "postcss": "^8.4.21"
