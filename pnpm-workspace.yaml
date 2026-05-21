@@ -1,3 +1,14 @@
 packages:
   - 'packages/**'
   - 'apps/**'
+peerDependencyRules:
+  ignoreMissing: []
+patchedDependencies:
+  postcss-px-to-viewport@1.1.1: patches/postcss-px-to-viewport@1.1.1.patch
+allowBuilds:
+  core-js: true
+  cpu-features: true
+  esbuild: true
+  simple-git-hooks: true
+  ssh2: true
+  vue-demi: true

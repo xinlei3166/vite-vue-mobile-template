@@ -9,7 +9,6 @@ import 'tdesign-mobile-vue/es/style/index.css'
 import '@packages/styles/index.less'
 import '@packages/styles/reset.less'
 import '@/styles/index.less'
-import 'animate.css'
 // 移动端适配，使用postcss-pxtorem时打开这个
 // import 'amfe-flexible'
 import 'virtual:uno.css'
