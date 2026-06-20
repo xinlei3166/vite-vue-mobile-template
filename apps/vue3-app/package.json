@@ -25,7 +25,6 @@
     "serve": "vp preview --host",
     "serve:github": "vp preview --host --mode github",
     "deploy": "zsh scripts/gh-pages.sh",
-    "upload": "node upload",
     "test": "pnpm run build:qa && pnpm run upload"
   },
   "dependencies": {
