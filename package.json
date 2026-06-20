@@ -87,7 +87,6 @@
     "postcss-px-to-viewport": "^1.1.1",
     "postcss-pxtorem": "^6.1.0",
     "simple-git-hooks": "latest",
-    "ssh2-sftp-client": "^12.1.1",
     "tsx": "latest",
     "typescript": "^6.0.2",
     "unocss": "^66.6.8",
