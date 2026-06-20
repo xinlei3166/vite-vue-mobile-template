@@ -2,28 +2,28 @@
   "name": "vue3-app",
   "version": "1.0.0",
   "private": true,
+  "keywords": [
+    "template",
+    "vite",
+    "vue"
+  ],
+  "license": "MIT",
+  "author": "君惜",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xinlei3166/vite-vue-mobile-template.git",
     "directory": "apps/vue3-app"
   },
-  "keywords": [
-    "vue",
-    "vite",
-    "template"
-  ],
-  "author": "君惜",
-  "license": "MIT",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "dev": "vite --host --port 5001",
-    "dev:github": "vite --host --port 5001 --mode github",
-    "build:dev": "vite build --mode development",
-    "build:qa": "vite build --mode qa",
-    "build:github": "vite build --mode github",
-    "build": "vite build",
-    "serve": "vite preview --host",
-    "serve:github": "vite preview --host --mode github",
+    "dev": "vp dev --host --port 5001",
+    "dev:github": "vp dev --host --port 5001 --mode github",
+    "build:dev": "vp build --mode development",
+    "build:qa": "vp build --mode qa",
+    "build:github": "vp build --mode github",
+    "build": "vp build",
+    "serve": "vp preview --host",
+    "serve:github": "vp preview --host --mode github",
     "deploy": "zsh scripts/gh-pages.sh",
     "upload": "node upload",
     "test": "pnpm run build:qa && pnpm run upload"

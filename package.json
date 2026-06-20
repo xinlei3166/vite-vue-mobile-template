@@ -19,10 +19,10 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "simple-git-hooks",
-    "format": "oxfmt",
-    "format:check": "oxfmt --check",
-    "lint": "oxlint",
-    "lint:fix": "oxlint --fix",
+    "format": "vp fmt",
+    "format:check": "vp fmt --check",
+    "lint": "vp lint",
+    "lint:fix": "vp lint --fix",
     "release": "yunque-release --skipBuild",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
@@ -82,8 +82,6 @@
     "lint-staged": "^16.4.0",
     "mockjs": "^1.1.0",
     "npm-run-all": "^4.1.5",
-    "oxfmt": "^0.45.0",
-    "oxlint": "^1.60.0",
     "picocolors": "latest",
     "postcss": "^8.5.9",
     "postcss-px-to-viewport": "^1.1.1",
@@ -96,8 +94,10 @@
     "unplugin-auto-import": "^21.0.0",
     "unplugin-vue-components": "^32.0.0",
     "vconsole": "^3.15.1",
-    "vite": "^8.0.8",
-    "vite-plugin-vue-devtools": "^8.1.2"
+    "vite": "catalog:",
+    "vite-plugin-vue-devtools": "^8.1.2",
+    "vite-plus": "catalog:",
+    "vitest": "catalog:"
   },
   "peerDependencies": {
     "postcss": "^8.4.21"
@@ -108,8 +108,14 @@
   },
   "lint-staged": {
     "*": [
-      "oxlint --fix --no-error-on-unmatched-pattern",
-      "oxfmt --no-error-on-unmatched-pattern"
+      "vp check --fix --no-error-on-unmatched-pattern"
     ]
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "^11.0.0",
+      "onFail": "download"
+    }
   }
 }

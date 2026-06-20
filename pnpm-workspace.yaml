@@ -3,6 +3,12 @@ packages:
   - 'apps/**'
 peerDependencyRules:
   ignoreMissing: []
+  allowAny:
+    - vite
+    - vitest
+  allowedVersions:
+    vite: '*'
+    vitest: '*'
 patchedDependencies:
   postcss-px-to-viewport@1.1.1: patches/postcss-px-to-viewport@1.1.1.patch
 allowBuilds:
@@ -12,3 +18,10 @@ allowBuilds:
   simple-git-hooks: true
   ssh2: true
   vue-demi: true
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@latest
+  vitest: 4.1.9
+  vite-plus: latest
+overrides:
+  vite: 'catalog:'
+  vitest: 'catalog:'

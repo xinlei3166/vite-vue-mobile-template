@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
@@ -11,8 +11,7 @@
     "allowJs": true,
     "noImplicitAny": true,
     "lib": ["esnext", "dom"],
-    "types": ["vite/client", "node"],
-    "baseUrl": ".",
+    "types": ["vite-plus/client", "node"],
     "paths": {
       "@/*": ["./src/*"],
       "features/*": ["../../features/*"]
